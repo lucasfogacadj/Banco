@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Programa {
@@ -8,8 +9,11 @@ public class Programa {
 		int opc;
 		int count = 0;
 		Scanner tc = new Scanner(System.in);
-		ContaCorrente [] c1  = new ContaCorrente[2];
-
+		
+		
+		ArrayList<ContaCorrente> contas = new ArrayList<>();
+		
+		
 		
 		System.out.println("Digite:1- cadastrar conta.\n 2- Efetuar Deposito:\n 3- Efetuar Saque: \n 4- Efetuar Tranferencia:\n");
 		opc=tc.nextInt();
@@ -17,19 +21,25 @@ public class Programa {
 		switch(opc){
 		
 		case 1:{
-			ContaCorrente conta = new ContaCorrente();
-			conta.lerContaCorrente();
-			c1[count] = conta;
-			count++;
+			System.out.println("Digite um CPF");
+			Cliente c1 = new Cliente(tc.next());
+			c1.lerCliente();
+			ContaCorrente conta = new ContaCorrente(c1);
+			if(!contas.contains(conta)){
+				conta.lerContaCorrente();;	
+				contas.add(conta);
+			}
 			break;
 		}
 		case 2:{
-			int numero;
-			float deposito;
-			System.out.println("Informe o numero da conta para fazer o saque:");
-			numero=tc.nextInt();
-			System.out.println("Informe o o valor do deposito:");
-			deposito=tc.nextFloat();
+			double valor;
+			int numeroConta;
+			System.out.println("Digite um valor");
+			valor=tc.nextDouble();
+			System.out.println("Informe o numero da conta destino");
+			numeroConta=tc.nextInt();
+			contas.contains(contas.indexOf(numeroConta));
+			
 		}
 		}
 		
