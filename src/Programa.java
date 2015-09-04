@@ -6,9 +6,9 @@ public class Programa {
 	public static void main(String[] args) {
 		
 		int opc;
-		
+		int count = 0;
 		Scanner tc = new Scanner(System.in);
-		ContaCorrente c1 = new ContaCorrente();
+		ContaCorrente [] c1  = new ContaCorrente[2];
 
 		
 		System.out.println("Digite:1- cadastrar conta.\n 2- Efetuar Deposito:\n 3- Efetuar Saque: \n 4- Efetuar Tranferencia:\n");
@@ -17,15 +17,19 @@ public class Programa {
 		switch(opc){
 		
 		case 1:{
-			c1.getNumero();
-			c1.getAgencia();
-			c1.getSaldo();
-			c1.getSenha();
-			c1.getTitular();
+			ContaCorrente conta = new ContaCorrente();
+			conta.lerContaCorrente();
+			c1[count] = conta;
+			count++;
 			break;
 		}
 		case 2:{
-			
+			int numero;
+			float deposito;
+			System.out.println("Informe o numero da conta para fazer o saque:");
+			numero=tc.nextInt();
+			System.out.println("Informe o o valor do deposito:");
+			deposito=tc.nextFloat();
 		}
 		}
 		
